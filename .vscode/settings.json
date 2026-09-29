@@ -1,0 +1,20 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^python -c 'import xml\\.etree\\.ElementTree as ET; p=\"dsa/modified_sms_v2-1\\.xml\"; root=ET\\.parse\\(p\\)\\.getroot\\(\\); records=root\\.findall\\(\"sms\"\\); print\\(f\"root=\\{root\\.tag\\}, declared=\\{root\\.get\\(chr\\(99\\)\\+chr\\(111\\)\\+chr\\(117\\)\\+chr\\(110\\)\\+chr\\(116\\)\\)\\}, parsed=\\{len\\(records\\)\\}, sample_fields=\\{list\\(records\\[0\\]\\.attrib\\)\\}\"\\)'$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^python3 -c 'import xml\\.etree\\.ElementTree as ET; p=\"dsa/modified_sms_v2-1\\.xml\"; root=ET\\.parse\\(p\\)\\.getroot\\(\\); records=root\\.findall\\(\"sms\"\\); print\\(f\"root=\\{root\\.tag\\}, declared=\\{root\\.get\\(chr\\(99\\)\\+chr\\(111\\)\\+chr\\(117\\)\\+chr\\(110\\)\\+chr\\(116\\)\\)\\}, parsed=\\{len\\(records\\)\\}, sample_fields=\\{list\\(records\\[0\\]\\.attrib\\)\\}\"\\)'$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^python3 -c 'import collections, xml\\.etree\\.ElementTree as ET; root=ET\\.parse\\(\"dsa/modified_sms_v2-1\\.xml\"\\)\\.getroot\\(\\); print\\(dict\\(collections\\.Counter\\(child\\.tag for child in root\\)\\)\\)'$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^python3 dsa/convert_sms_to_json\\.py && python3 -c 'import json; from pathlib import Path; records=json\\.loads\\(Path\\(\"dsa/sms_records\\.json\"\\)\\.read_text\\(encoding=\"utf-8\"\\)\\); assert len\\(records\\)==1691; assert all\\(isinstance\\(record, dict\\) for record in records\\); assert records\\[0\\]\\[\"address\"\\] == \"M-Money\"; print\\(f\"Validated JSON array: \\{len\\(records\\)\\} dictionaries; \\{len\\(records\\[0\\]\\)\\} fields in first record\"\\)'$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
